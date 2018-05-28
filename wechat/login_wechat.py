@@ -2,9 +2,10 @@
 from selenium import webdriver
 import time
 import json
+import account
 
-username = 'input admin account name'
-password = 'input admin password'
+username=account.login
+password=account.password
 
 driver = webdriver.Chrome(executable_path='/usr/local/bin/chromedriver')
 driver.get('https://mp.weixin.qq.com/')
@@ -20,6 +21,8 @@ driver.find_element_by_xpath("./*//a[@class='btn_login']").click()
 time.sleep(15)
 driver.get('https://mp.weixin.qq.com/')
 cookie_items = driver.get_cookies()
+
+post = {}
 for cookie_item in cookie_items:
     post[cookie_item['name']] = cookie_item['value']
 cookie_str = json.dumps(post)

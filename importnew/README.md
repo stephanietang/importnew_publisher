@@ -13,13 +13,17 @@ Before crawling the posts, you have to
 How to crawl the posts from importnew
 ---------------
 
-1. The username/password is set up in scrapy_importnew/importnew-login.py
-
-2. After setting up the accounts, run the command at root path of this project(imporntew/)
+1. The username/password is set up in 
 
 ```
-scrapy crawl login
+<project_root_folder>/importnew/scrapy_importnew/spiders/account.py
+```
 
+2. After setting up the accounts, run the command
+
+```
+cd <project_root_folder>/importnew/
+scrapy crawl login
 ```
 
 3. After crawling, you will be able to see the posts in mongodb（database="importnewDb", collection="importnewPosts"）

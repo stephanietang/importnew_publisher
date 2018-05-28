@@ -5,6 +5,8 @@ from scrapy.exceptions import CloseSpider
 
 from scrapy_importnew.items import *
 
+import account
+
 class LoginSpider(scrapy.Spider):
     name = 'login'
     start_urls = ['http://www.importnew.com/wp-login.php']
@@ -14,8 +16,8 @@ class LoginSpider(scrapy.Spider):
         yield scrapy.FormRequest(
             url='http://www.importnew.com/wp-login.php',
             formdata={
-                'log': 'input your username',
-                'pwd': 'input your password',
+                'log': account.login,
+                'pwd': account.password,
             },
             callback=self.after_login,
         )
